@@ -11,8 +11,8 @@ const SetTurnProvider = ({children}: IChildren): JSX.Element => {
 	const emptyBoxes = Array(9).fill("");
 	const [boxes, setBoxes] = useState(emptyBoxes);
 	const [currentPlayer, setCurrentPlayer] = useState("x");
-	const [cpuTurn, setCpuTurn] = useState<boolean>(starterSimbol === "x" ? false : true);
 	const [playerTurn, setPlayerTurn] = useState<boolean>(false);
+	const [cpuTurn, setCpuTurn] = useState<boolean>(starterSimbol === "x" ? false : true);
 
 	return (
 		<setTurnContext.Provider

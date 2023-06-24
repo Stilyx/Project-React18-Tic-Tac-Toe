@@ -67,7 +67,6 @@ function Boxes() {
 
 	const handleCpuMode = (index: number) => {
 		if (turns.boxes[index] !== "") return;
-		if (!starterPlayerSimbol) return;
 
 		if (turns.playerTurn) {
 			turns.setBoxes(prev => {
@@ -84,7 +83,6 @@ function Boxes() {
 
 	const cpuMove = (winner: boolean) => {
 		if (winner) return;
-		if (!cpuLocalStorage) return;
 		let filteredArray: number[] = [];
 		turns.boxes.map((box, index) => {
 			if (box === "") {

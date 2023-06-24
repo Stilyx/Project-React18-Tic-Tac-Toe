@@ -7,6 +7,7 @@ import {SimbolSelectContext} from "../../context/SimbolSelect";
 
 //Interfaces
 import {ISimbolSelector} from "../../interfaces/ISimbolSelector";
+import {setTurnContext} from "../../context/SetTurn";
 
 function SimbolSelector({xSimbol, oSimbol}: ISimbolSelector) {
 	const {setStarterSimbol, starterSimbol, setCpuSimbol} = useContext(SimbolSelectContext);
@@ -15,11 +16,13 @@ function SimbolSelector({xSimbol, oSimbol}: ISimbolSelector) {
 		if (starterSimbol === "x") {
 			localStorage.setItem("starterPlayerSimbol", "x");
 			localStorage.setItem("starterLocalCpu", "o");
+
 			setCpuSimbol("o");
 		}
 		if (starterSimbol === "o") {
 			localStorage.setItem("starterPlayerSimbol", "o");
 			localStorage.setItem("starterLocalCpu", "x");
+
 			setCpuSimbol("x");
 		}
 	}, [starterSimbol]);

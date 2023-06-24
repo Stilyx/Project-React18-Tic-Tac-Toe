@@ -1,5 +1,5 @@
 import React from "react";
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 // Style
@@ -24,28 +24,29 @@ function Home() {
 	const navigate = useNavigate();
 
 	const handleVsPlayer = () => {
-		navigate("/game");
-		setIsVsPlayer(true);
-		setIsVsCpu(false);
 		localStorage.setItem("gamemode", "player");
+		setIsVsCpu(false);
+		setIsVsPlayer(true);
 		setCurrentPlayer("x");
+		navigate("/game");
 	};
 
 	const handleVsCpu = () => {
-		navigate("/game");
+		localStorage.setItem("gamemode", "cpu");
 		setIsVsPlayer(false);
 		setIsVsCpu(true);
-		localStorage.setItem("gamemode", "cpu");
 		setCurrentPlayer("x");
+		if (starterSimbol === "x") {
+			setPlayerTurn(true);
+			setCpuSimbol("o");
+		}
 
 		if (starterSimbol === "o") {
 			setCpuTurn(true);
 			setCpuSimbol("x");
 		}
-		if (starterSimbol === "x") {
-			setPlayerTurn(true);
-			setCpuSimbol("o");
-		}
+
+		navigate("/game");
 	};
 
 	return (
