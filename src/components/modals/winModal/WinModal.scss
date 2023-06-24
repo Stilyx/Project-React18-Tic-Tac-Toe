@@ -1,0 +1,55 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.win-container {
+	@include modal-container;
+
+	.result {
+		color: $display-gray-color;
+		margin-bottom: 23px;
+		font-weight: 700;
+		letter-spacing: 1px;
+	}
+
+	.who-takes-round {
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		margin-bottom: 30px;
+
+		.result-x-icon {
+			fill: $normal-x-color;
+			@include result-icon-mobile;
+		}
+		.result-o-icon {
+			fill: $normal-o-color;
+			@include result-icon-mobile;
+		}
+
+		.result-x-text {
+			@include result-text($normal-x-color);
+			@include result-text-mobile;
+		}
+		.result-o-text {
+			@include result-text($normal-o-color);
+			@include result-text-mobile;
+		}
+	}
+	.result-buttons {
+		@include result-standard-buttons;
+
+		.quit-button {
+			@include button-style($display-gray-color, #6b8997);
+			&:hover {
+				background-color: #dbe8ed;
+			}
+		}
+
+		.next-round-button {
+			@include button-style($normal-o-color, #cc8b13);
+			&:hover {
+				background-color: #ffc860;
+			}
+		}
+	}
+}

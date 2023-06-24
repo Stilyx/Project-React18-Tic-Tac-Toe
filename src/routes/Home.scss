@@ -1,0 +1,74 @@
+@import "../styles/variables.scss";
+
+.home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	height: 100vh;
+	width: 460px;
+}
+
+.logo {
+	display: flex;
+	flex-direction: row;
+	gap: 7px;
+	margin-bottom: 30px;
+}
+
+.o-logo {
+	fill: $normal-o-color;
+	width: 32px;
+	height: 32px;
+}
+.x-logo {
+	fill: $normal-x-color;
+	width: 32px;
+	height: 32px;
+}
+
+.cpu-or-player {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
+}
+
+.cpu-or-player button {
+	border: none;
+	outline: none;
+	border-radius: 15px;
+	height: 67px;
+	font-size: 20px;
+	color: #1a2a33;
+	font-weight: 700;
+	cursor: pointer;
+
+	&:active {
+		transform: translateY(4px);
+	}
+
+	@media (max-width: "600px") {
+		width: 327px;
+		margin: 0 auto;
+	}
+}
+
+.cpu-button {
+	background: $normal-o-color;
+	box-shadow: inset 0px -8px 0px #cc8b13;
+
+	&:hover {
+		background: #ffc860;
+	}
+}
+
+.player-button {
+	background: $normal-x-color;
+	box-shadow: inset 0px -8px 0px #118c87;
+
+	&:hover {
+		background: #65e9e4;
+	}
+}

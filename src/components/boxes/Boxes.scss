@@ -1,0 +1,96 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.game-action {
+	width: 460px;
+	display: grid;
+	margin: 0 auto;
+	grid-template-columns: repeat(3, 120px);
+	gap: 20px;
+	margin-bottom: 20px;
+	align-items: center;
+	justify-content: center;
+
+	@media (max-width: 600px) {
+		grid-template-columns: repeat(3, 96px);
+		width: 328px;
+	}
+
+	.box {
+		background-color: $semi-dark-navy;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 120px;
+		width: 120px;
+		border-radius: 10px;
+		box-shadow: inset 0px -8px 0px #10212a;
+
+		@media (max-width: 600px) {
+			height: 96px;
+			width: 96px;
+		}
+	}
+
+	/* X select */
+
+	.box.x {
+		@include box-background("../../assets/X-Selected.svg");
+		transition: all 0.3s ease;
+		animation: markAppear 0.5s ease;
+		@include icon-mobile-select-size;
+	}
+
+	/* O select */
+
+	.box.o {
+		@include box-background("../../assets/O-Selected.svg");
+		animation: markAppear 0.5s ease;
+		cursor: pointer;
+		@include icon-mobile-select-size;
+	}
+
+	.box.o,
+	.box.x {
+		cursor: not-allowed;
+	}
+
+	.box.owinner {
+		@include box-background("../../assets/icon-o-win.svg");
+		background-color: $normal-o-color;
+		transition: all 0.1s ease 0.1s;
+		@include icon-mobile-select-size;
+	}
+
+	.box.xwinner {
+		@include box-background("../../assets/icon-x-win.svg");
+		background-color: $normal-x-color;
+		transition: all 0.1s ease 0.1s;
+		@include icon-mobile-select-size;
+	}
+}
+
+.game-action.x-turn .box:not(.o, .x):hover {
+	@include box-background("../../assets/X-Hover.svg");
+	@include icon-mobile-select-size;
+	cursor: pointer;
+}
+
+.game-action.o-turn .box:not(.o, .x):hover {
+	@include box-background("../../assets/O-Hover.svg");
+	@include icon-mobile-select-size;
+	cursor: pointer;
+}
+
+@keyframes markAppear {
+	0% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}

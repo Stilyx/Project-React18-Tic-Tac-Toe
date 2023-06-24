@@ -1,0 +1,66 @@
+@mixin modal-container {
+	width: 100%;
+	height: 266px;
+	background-color: #1f3641;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin result-text($letter-color) {
+	color: $letter-color;
+	font-size: 40px;
+	font-weight: 700;
+}
+
+@mixin button-style($background, $box-shadow) {
+	padding: 17px;
+	border-radius: 10px;
+	letter-spacing: 1;
+	border: none;
+	cursor: pointer;
+	background-color: $background;
+	box-shadow: inset 0px -4px 0px $box-shadow;
+}
+
+@mixin box-background($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 64px 64px;
+}
+
+@mixin result-icon-mobile {
+	@media (max-width: "600px") {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@mixin result-text-mobile {
+	@media (max-width: "600px") {
+		font-size: 24px;
+	}
+}
+
+@mixin icon-mobile-select-size {
+	@media (max-width: 600px) {
+		background-size: 40px;
+	}
+}
+
+@mixin game-width-mobile {
+	@media (max-width: 600px) {
+		width: 328px;
+	}
+}
+
+@mixin result-standard-buttons {
+	gap: 20px;
+	display: flex;
+	height: 52px;
+	font-weight: 700;
+	font-size: 16px;
+	color: #1a2a33;
+}

@@ -1,0 +1,50 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.scoreBoard {
+	width: 460px;
+	display: grid;
+	grid-template-columns: repeat(3, 120px);
+	height: 72px;
+	justify-content: space-between;
+	align-items: center;
+	@include game-width-mobile;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		text-align: center;
+		justify-content: center;
+		border-radius: 10px;
+		height: 72px;
+
+		@media (max-width: 600px) {
+			width: 96px;
+			height: 64px;
+		}
+	}
+
+	.x-score {
+		background-color: $normal-x-color;
+	}
+
+	.ties-score {
+		background-color: $display-gray-color;
+	}
+
+	.o-score {
+		background-color: $normal-o-color;
+	}
+
+	.score-title {
+		color: #1a2a33;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.score-points {
+		color: #1a2a33;
+		font-size: 24px;
+	}
+}

@@ -1,0 +1,30 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.ties-container {
+	@include modal-container;
+
+	.tie-title {
+		font-size: 40px;
+		color: $display-gray-color;
+		margin-bottom: 31px;
+	}
+
+	.result-buttons {
+		@include result-standard-buttons;
+
+		.quit-button {
+			@include button-style($display-gray-color, #6b8997);
+			&:hover {
+				background-color: #dbe8ed;
+			}
+		}
+
+		.next-round-button {
+			@include button-style($normal-o-color, #cc8b13);
+			&:hover {
+				background-color: #ffc860;
+			}
+		}
+	}
+}
