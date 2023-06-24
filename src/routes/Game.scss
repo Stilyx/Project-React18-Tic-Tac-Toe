@@ -1,3 +1,5 @@
+@import "../styles/mixins.scss";
+
 .game {
 	display: flex;
 	flex-direction: column;
@@ -7,4 +9,5 @@
 	height: 100vh;
 	width: 460px;
 	transition: all 1s;
+	@include mobile-container-size;
 }

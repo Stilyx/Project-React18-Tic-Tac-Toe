@@ -1,4 +1,5 @@
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 .home {
 	display: flex;
@@ -8,6 +9,8 @@
 	margin: 0 auto;
 	height: 100vh;
 	width: 460px;
+
+	@include mobile-container-size;
 }
 
 .logo {

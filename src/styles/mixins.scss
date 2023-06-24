@@ -64,3 +64,9 @@
 	font-size: 16px;
 	color: #1a2a33;
 }
+
+@mixin mobile-container-size {
+	@media (max-width: 600px) {
+		width: 375px;
+	}
+}
