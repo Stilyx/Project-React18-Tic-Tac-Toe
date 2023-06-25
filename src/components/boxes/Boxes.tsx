@@ -44,9 +44,12 @@ function Boxes() {
 		if (!gamemode) return;
 		simbol.setStarterSimbol(starterPlayerSimbol);
 		simbol.setCpuSimbol(cpuLocalStorage);
-		if (gamemode === "cpu") setIsVsCpu(true);
+
 		if (simbol.starterSimbol === "x") turns.setPlayerTurn(true);
-		if (simbol.cpuSimbol === "x") cpuMove(isWinner);
+		if (simbol.cpuSimbol === "x" && gamemode === "cpu") {
+			setIsVsCpu(true);
+			cpuMove(isWinner);
+		}
 	}, []);
 
 	useEffect(() => {

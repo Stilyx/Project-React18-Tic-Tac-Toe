@@ -25,8 +25,8 @@ function Home() {
 
 	const handleVsPlayer = () => {
 		localStorage.setItem("gamemode", "player");
-		setIsVsCpu(false);
 		setIsVsPlayer(true);
+		setIsVsCpu(false);
 		setCurrentPlayer("x");
 		navigate("/game");
 	};
