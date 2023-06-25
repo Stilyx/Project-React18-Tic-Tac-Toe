@@ -13,10 +13,6 @@ import {setTurnContext} from "../../context/SetTurn";
 // Utils
 import {combinations} from "../../utils/getCombinations";
 
-// LocalStorage
-const cpuLocalStorage = localStorage.getItem("starterLocalCpu");
-const starterPlayerSimbol = localStorage.getItem("starterPlayerSimbol");
-
 function Boxes() {
 	const {setOScore, setTies, setXScore, oScore, ties, xScore} = useContext(ScoreBoardContext);
 	const {setIsWinner, setWhoWin, isWinner, setDraw, draw} = useContext(ResultContext);
@@ -50,11 +46,13 @@ function Boxes() {
 			setIsVsCpu(true);
 			cpuMove(isWinner);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
 		if (turns.cpuTurn) cpuMove(isWinner);
 		checkWinner();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [turns.boxes, isWinner]);
 
 	const handleCellClick = (index: number) => {
@@ -91,10 +89,11 @@ function Boxes() {
 			if (box === "") {
 				filteredArray.push(index);
 				const randomIndex = filteredArray[Math.floor(Math.random() * filteredArray.length)];
-				turns.setBoxes(
+				return turns.setBoxes(
 					turns.boxes.map((box, index) => (index === randomIndex ? simbol.cpuSimbol : box))
 				);
 			}
+			return null;
 		});
 
 		turns.setCurrentPlayer(simbol.cpuSimbol === "o" ? "x" : "o");

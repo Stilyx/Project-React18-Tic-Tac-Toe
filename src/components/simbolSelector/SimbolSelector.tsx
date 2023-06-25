@@ -7,7 +7,6 @@ import {SimbolSelectContext} from "../../context/SimbolSelect";
 
 //Interfaces
 import {ISimbolSelector} from "../../interfaces/ISimbolSelector";
-import {setTurnContext} from "../../context/SetTurn";
 
 function SimbolSelector({xSimbol, oSimbol}: ISimbolSelector) {
 	const {setStarterSimbol, starterSimbol, setCpuSimbol} = useContext(SimbolSelectContext);
@@ -25,6 +24,7 @@ function SimbolSelector({xSimbol, oSimbol}: ISimbolSelector) {
 
 			setCpuSimbol("x");
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [starterSimbol]);
 
 	return (
